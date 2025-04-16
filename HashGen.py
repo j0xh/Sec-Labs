@@ -42,7 +42,7 @@ def select_algorithm():
 def get_valid_string():
     while True:
         data = input("Enter the string to hash: ").strip()
-        if data.isalpha():  # Check if string only contains alphabets
+        if data:  # Check if string only contains alphabets
             return data
         else:
             print("Invalid input. Please enter a valid string (letters only).")
@@ -90,4 +90,8 @@ def main():
         print("Invalid option.")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"\n[!] An error occurred: {e}")
+    input("\nPress Enter to exit...")
